@@ -33,6 +33,10 @@ public class LoadImages {
         frame.add(lbl);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
+        // Delete the file when closing
+        File file = new File(destinationFile);
+        file.deleteOnExit();
 	}
 
 	public static void saveImage(String imageUrl, String destinationFile) throws IOException {
