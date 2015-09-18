@@ -1,0 +1,55 @@
+import javax.imageio.ImageIO;
+import javax.swing.*;
+
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
+public class LoadImages {
+
+
+	public static void main(String[] args) throws Exception {
+		
+		// grab the image from a url and save it
+	    String imageUrl = "http://www.avajava.com/images/avajavalogo.jpg";
+	    String destinationFile = "C:/Users/kellymr1/Documents/Classes/CSSE371/test.jpg";
+
+	    saveImage(imageUrl, destinationFile);
+	    
+	    
+	    // display the image in the frame
+	    BufferedImage img=ImageIO.read(new File("C:/Users/kellymr1/Documents/Classes/CSSE371/test.jpg"));
+        ImageIcon icon=new ImageIcon(img);
+        JFrame frame=new JFrame();
+        frame.setLayout(new FlowLayout());
+        frame.setSize(200,300);
+        JLabel lbl=new JLabel();
+        lbl.setIcon(icon);
+        frame.add(lbl);
+        frame.setVisible(true);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+
+	public static void saveImage(String imageUrl, String destinationFile) throws IOException {
+	    URL url = new URL(imageUrl);
+	    InputStream is = url.openStream();
+	    OutputStream os = new FileOutputStream(destinationFile);
+
+	    byte[] b = new byte[2048];
+	    int length;
+
+	    while ((length = is.read(b)) != -1) {
+	        os.write(b, 0, length);
+	    }
+
+	    is.close();
+	    os.close();
+	}
+	
+	
+}
