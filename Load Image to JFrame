@@ -16,14 +16,14 @@ public class LoadImages {
 	public static void main(String[] args) throws Exception {
 		
 		// grab the image from a url and save it
-	    String imageUrl = "http://www.avajava.com/images/avajavalogo.jpg";
-	    String destinationFile = "C:/Users/kellymr1/Documents/Classes/CSSE371/test.jpg";
+	    String imageUrl = "imageURLHere.jpg";
+	    String destinationFile = "test.jpg";
 
 	    saveImage(imageUrl, destinationFile);
 	    
 	    
 	    // display the image in the frame
-	    BufferedImage img=ImageIO.read(new File("C:/Users/kellymr1/Documents/Classes/CSSE371/test.jpg"));
+	    BufferedImage img=ImageIO.read(new File("test.jpg"));
         ImageIcon icon=new ImageIcon(img);
         JFrame frame=new JFrame();
         frame.setLayout(new FlowLayout());
